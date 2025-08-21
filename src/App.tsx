@@ -1,18 +1,23 @@
 import { Route, Routes } from "react-router-dom";
 import AuthLayout from "./_auth/AuthLayout";
 import SigninForm from "./_auth/forms/SigninForm";
-import SignupForm from "./_auth/forms/SignupForm";
+import { useEffect } from "react";
+import MainLayout from "./_pages/MainLayout";
+import MainPage from "./_pages/start/DatePage";
 
 const App = () => {
+  useEffect(() => {
+    document.documentElement.classList.add("dark");
+  }, []);
+
   return (
     <main>
       <Routes>
-        <Route element={<AuthLayout/>}>
-            <Route path="/sign-in" element={<SigninForm/>}/>
-            <Route path="/sign-up" element={<SignupForm/>} />
+        <Route element={<AuthLayout />}>
+          <Route path="/sign-in" element={<SigninForm />} />
         </Route>
 
-
+        <Route path="/main" element={<MainLayout />}/>
       </Routes>
     </main>
   );
