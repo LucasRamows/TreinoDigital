@@ -21,7 +21,7 @@ const ServicePage = ({ onNext, onPrevious }: any) => {
     setServices((prev) =>
       checked ? [...prev, name] : prev.filter((s) => s !== name)
     );
-    setValue((prev) => (checked ? prev + price : prev - price));
+    setValue((prev) => (checked ? prev + price : Math.max(0, prev - price)));
   };
   const handleSubmit = () => {
     onNext({ services });
