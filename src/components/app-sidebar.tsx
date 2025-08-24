@@ -2,19 +2,15 @@
 
 import * as React from "react";
 import {
-  AudioWaveform,
-  BookOpen,
-  Bot,
-  Command,
+  Clock,
   Frame,
   GalleryVerticalEnd,
   Map,
   PieChart,
-  Settings2,
-  SquareTerminal,
+  PieChartIcon,
+  Settings,
 } from "lucide-react";
 
-import { NavMain } from "../components/nav-main";
 import { NavProjects } from "../components/nav-projects";
 import { NavUser } from "../components/nav-user";
 import { TeamSwitcher } from "../components/team-switcher";
@@ -33,55 +29,46 @@ const data = {
     email: "m..example.com",
     avatar: "/avatars/shadcn.jpg",
   },
-  teams: [
-    {
-      name: "Acme Inc",
+  business: {
+      name: "Barber",
       logo: GalleryVerticalEnd,
-      plan: "Enterprise",
     },
-    {
-      name: "Acme Corp.",
-      logo: AudioWaveform,
-      plan: "Startup",
-    },
-    {
-      name: "Evil Corp.",
-      logo: Command,
-      plan: "Free",
-    },
-  ],
   projects: [
     {
       name: "Dashboard",
-      url: "/dash",
+      url: "/dashboard",
       icon: Frame,
     },
     {
       name: "Horários",
-      url: "#",
-      icon: PieChart,
+      url: "/time",
+      icon: Clock,
     },
     {
       name: "Configurações",
-      url: "#",
-      icon: Map,
-    },
-    {
-      name: "Suporte",
-      url: "#",
-      icon: Map,
+      url: "/settings",
+      icon: Settings,
     },
   ],
+  actions: [
+    {
+      name: "Gerenciar agendamentos",
+      url: "/appointments",
+      icon: PieChartIcon,
+    },
+    
+  ],
+  
 };
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
-        <TeamSwitcher teams={data.teams} />
+        <TeamSwitcher business={data.business} />
       </SidebarHeader>
       <SidebarContent>
-        <NavProjects projects={data.projects} />
+        <NavProjects projects={data.projects} actions={data.actions}/>
       </SidebarContent>
       <SidebarFooter>
         <NavUser user={data.user} />
