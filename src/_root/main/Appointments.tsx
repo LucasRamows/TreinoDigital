@@ -1,4 +1,4 @@
-import { ChevronDownIcon, EllipsisIcon, Pencil } from "lucide-react";
+import { EllipsisIcon, Pencil } from "lucide-react";
 import { Button } from "../../components/ui/button";
 import { Calendar } from "../../components/ui/calendar";
 import {
@@ -11,7 +11,6 @@ import {
   TableBody,
   TableCaption,
   TableCell,
-  TableFooter,
   TableHead,
   TableHeader,
   TableRow,
