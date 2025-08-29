@@ -10,21 +10,20 @@ import {
   Settings,
 } from "lucide-react";
 
-import { NavProjects } from "../components/nav-projects";
-import { NavUser } from "../components/nav-user";
-import { TeamSwitcher } from "../components/team-switcher";
+import { NavProjects } from "./nav-projects";
+import { NavUser } from "./nav-user";
+import { TeamSwitcher } from "./team-switcher";
 import {
   Sidebar,
   SidebarContent,
   SidebarFooter,
   SidebarHeader,
   SidebarRail,
-} from "../components/ui/sidebar";
+} from "./ui/sidebar";
 
-// This is sample data.
 const data = {
   user: {
-    name: "shadcn",
+    name: "TreinadorWeb",
     email: "m..example.com",
     avatar: "/avatars/shadcn.jpg",
   },
@@ -32,14 +31,14 @@ const data = {
       name: "Barber",
       logo: GalleryVerticalEnd,
     },
-  projects: [
+  sessions: [
     {
       name: "Dashboard",
       url: "/dashboard",
       icon: Frame,
     },
     {
-      name: "Horários",
+      name: "Rotina",
       url: "/time",
       icon: Clock,
     },
@@ -51,8 +50,8 @@ const data = {
   ],
   actions: [
     {
-      name: "Gerenciar agendamentos",
-      url: "/appointments",
+      name: "Exportar dados",
+      url: "dashboard-user  ",
       icon: PieChartIcon,
     },
     
@@ -67,7 +66,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <TeamSwitcher business={data.business} />
       </SidebarHeader>
       <SidebarContent>
-        <NavProjects projects={data.projects} actions={data.actions}/>
+        <NavProjects projects={data.sessions} actions={data.actions}/>
       </SidebarContent>
       <SidebarFooter>
         <NavUser user={data.user} />

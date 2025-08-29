@@ -12,6 +12,7 @@ import {
 import { Input } from "../../components/ui/input";
 import { Button } from "../../components/ui/button";
 import { loginForm } from "../../validation";
+import { Link } from "react-router-dom";
 
 const SigninForm = () => {
   const form = useForm<z.infer<typeof loginForm>>({
@@ -28,6 +29,8 @@ const SigninForm = () => {
 
   return (
     <div className="w-full px-6 md:px-10 md:w-1/2 flex flex-col gap-4 mx-auto">
+      <h1 className="font-bold text-2xl text-center">Entrar</h1>
+
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
@@ -65,9 +68,10 @@ const SigninForm = () => {
         </form>
       </Form>
 
-      <p className="text-sm text-foreground/50 mt-2">
-        Quer criar uma conta de colaborador? Entre em contato com o suporte.
-      </p>
+       <div className="w-full flex gap-2 justify-center">
+        <p className="text-sm text-foreground/50 mt-2">Não tem conta?</p>
+      <Link className="text-sm mt-2" to="/sign-up">Criar conta</Link>
+      </div>
     </div>
   );
 };

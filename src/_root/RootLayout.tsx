@@ -1,5 +1,5 @@
 import { Outlet, useLocation } from "react-router-dom";
-import { AppSidebar } from "../components/app-sidebar";
+import { AppSidebar } from "../components/app-sidebar-user";
 import {
   SidebarInset,
   SidebarProvider,
@@ -38,7 +38,6 @@ const RootLayout = () => {
         break;
     }
   }, [location.pathname]); // ✅ dependência da rota
-
   return (
     <SidebarProvider>
       <AppSidebar />
@@ -66,6 +65,7 @@ const RootLayout = () => {
       </SidebarInset>
     </SidebarProvider>
   );
-};
+}
+
 
 export default RootLayout;
