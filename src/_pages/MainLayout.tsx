@@ -1,5 +1,5 @@
 import { Outlet, useLocation } from "react-router-dom";
-import { AppSidebar } from "../components/app-sidebar";
+import { AppSidebar } from "../components/app-sidebar-user";
 import {
   SidebarInset,
   SidebarProvider,
@@ -26,6 +26,9 @@ const MainLayout = () => {
         break;
       case "/settings-user":
         setActualPage("Configurações");
+        break;
+      case "/routine":
+        setActualPage("Rotina");
         break;
       default:
         setActualPage("Dashboard");

@@ -39,8 +39,8 @@ const data = {
       icon: Frame,
     },
     {
-      name: "Horários",
-      url: "/time",
+      name: "Rotina",
+      url: "/routine",
       icon: Clock,
     },
     {

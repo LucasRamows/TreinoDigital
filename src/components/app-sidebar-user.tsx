@@ -34,12 +34,12 @@ const data = {
   sessions: [
     {
       name: "Dashboard",
-      url: "/dashboard",
+      url: "/dashboard-user",
       icon: Frame,
     },
     {
       name: "Rotina",
-      url: "/time",
+      url: "/routine",
       icon: Clock,
     },
     {

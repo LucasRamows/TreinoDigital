@@ -30,7 +30,7 @@ const DashboardUser = () => {
           <CardHeader>
             <div className="flex justify-between items-center">
               <CardTitle className="text-muted-foreground">
-                Total Ganhos
+                Peso Atual
               </CardTitle>
               <CardAction>
                 <DescriptionCard>

@@ -14,6 +14,7 @@ import SignupForm from "./_auth/forms/SignupForm";
 import SettingsUser from "./_pages/main/SettingsUser";
 import DashboardUser from "./_pages/main/DashboardUser";
 import ProfileUser from "./_pages/main/ProfileUser";
+import Routine from "./_pages/main/Routine";
 
 const App = () => {
   const localValue = localStorage.getItem("teste");
@@ -25,15 +26,13 @@ const App = () => {
           <Route path="/sign-up" element={<SignupForm />} />
         </Route>
 
-        {localValue ? (
           <Route element={<MainLayout />}>
             <Route path="/dashboard-user" element={<DashboardUser />} />
             <Route path="/settings-user" element={<SettingsUser />} />
             <Route path="/profile-user" element={<ProfileUser />} />
+            <Route path="/routine" element={<Routine />} />
           </Route>
-        ) : (
-          <Route path="/dashboard" element={<Dashboard />} />
-        )}
+      
 
         <Route element={<RootLayout />}>
           <Route path="/dashboard" element={<Dashboard />} />
