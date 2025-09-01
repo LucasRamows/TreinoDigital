@@ -79,7 +79,7 @@ export function NavUser({
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
-              <Link to="/profile">
+              <Link to="/profile-user">
                 <DropdownMenuItem>
                   <User/>
                   Conta</DropdownMenuItem>

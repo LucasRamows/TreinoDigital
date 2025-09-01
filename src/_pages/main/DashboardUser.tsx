@@ -1,5 +1,4 @@
 import { ChartAreaInteractive } from "../../components/chart-area-interactive";
-import { DataTable } from "../../components/data-table";
 import {
   CardAction,
   CardContent,
@@ -9,50 +8,23 @@ import {
   TinyCard,
 } from "../../components/ui/card";
 import { useIsMobile } from "../../hooks/use-mobile";
+import { useOutletContext } from "react-router-dom";
+import type { UserType } from "../../validation/types/gettingBackDataType";
 
 
 const DashboardUser = () => {
   const isMobile = useIsMobile();
-  const data = [
-  {
-    "id": 1,
-    "client": "lall",
-    "services": ["Cover page", "dajsd", "asjdhs"],
-    "phone": "4454142",
-    "price": "18",
-    "time": "15:30",
-  },
-]
+  const user = useOutletContext<UserType | null>();
+
   return (
     <div className="w-full flex flex-col gap-5">
-      <div className={`w-full flex gap-2 " ${isMobile ? "flex-col" : "flex"}`}>
+      <div className={`w-full flex gap-2 ${isMobile ? "flex-col" : "flex"}`}>
         <TinyCard className="w-full">
           <CardHeader>
             <div className="flex justify-between items-center">
-              <CardTitle className="text-muted-foreground">
-                Peso Atual
-              </CardTitle>
+              <CardTitle className="text-muted-foreground">Peso</CardTitle>
               <CardAction>
                 <DescriptionCard>
-                  <CardContent>
-                    <p>30 dias</p>
-                  </CardContent>
-                </DescriptionCard>
-              </CardAction>
-            </div>
-          </CardHeader>
-          <CardContent>
-            <h1 className="text-xl font-bold">R$ 1000,00</h1>
-          </CardContent>
-        </TinyCard>
-        <TinyCard className="w-full">
-          <CardHeader>
-            <div className="flex justify-between items-center">
-              <CardTitle className="text-muted-foreground">
-                Total Faturados
-              </CardTitle>
-              <CardAction>
-                <DescriptionCard className="">
                   <CardContent>
                     <p>Hoje</p>
                   </CardContent>
@@ -61,53 +33,35 @@ const DashboardUser = () => {
             </div>
           </CardHeader>
           <CardContent>
-            <h1 className="text-xl font-bold">50</h1>
+            <h1 className="text-xl font-bold">
+              {user?.weigth?.at(-1) ?? "Sem dados"}
+            </h1>
           </CardContent>
         </TinyCard>
+
         <TinyCard className="w-full">
           <CardHeader>
             <div className="flex justify-between items-center">
-              <CardTitle className="text-muted-foreground">
-                Total Clientes
-              </CardTitle>
+              <CardTitle className="text-muted-foreground">Frequência</CardTitle>
               <CardAction>
-                <DescriptionCard className="">
+                <DescriptionCard>
                   <CardContent>
-                    <p>Geral</p>
+                    <p>Mês</p>
                   </CardContent>
                 </DescriptionCard>
               </CardAction>
             </div>
           </CardHeader>
           <CardContent>
-            <h1 className="text-xl font-bold">50</h1>
-          </CardContent>
-        </TinyCard>
-        <TinyCard className="w-full">
-          <CardHeader>
-            <div className="flex justify-between items-center">
-              <CardTitle className="text-muted-foreground">
-                Novos Clientes
-              </CardTitle>
-              <CardAction>
-                <DescriptionCard className="">
-                  <CardContent>
-                    <p>30 dias</p>
-                  </CardContent>
-                </DescriptionCard>
-              </CardAction>
-            </div>
-          </CardHeader>
-          <CardContent>
-            <h1 className="text-xl font-bold">50</h1>
+            <h1 className="text-xl font-bold">
+              {user?.frequency ?? "Sem dados"}
+            </h1>
           </CardContent>
         </TinyCard>
       </div>
-      <div className="">
-        <ChartAreaInteractive/>
-      </div>
-      <div className="">
-        <DataTable data={data}/>
+
+      <div>
+        <ChartAreaInteractive />
       </div>
     </div>
   );
